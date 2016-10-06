@@ -1,31 +1,50 @@
 <html>
-    
     <head>
-        <link rel="stylesheet" type="text/css" href="css/tabs.css">
-        <link rel="stylesheet" type="text/css" href="css/full-body.css">
+        <link rel = 'stylesheet' href='style.css'/>
+        <script src="simulate.js"></script>
+        <script src="console.js"></script>
     </head>
-    
-    
-    <body>
-        
-        <ul class="tab">
-            <li><a href="#" 
-                class="tablinks" 
-                onclick="showTab(event,'sourceCode')">Source Code</a></li>
-            
-            <li><a href="#" class="tablinks" 
-                onclick="showTab(event,'execution')">Excecution tab</a></li>
+
+    <body onload="addEventListeners()">
+    <nav>
+        <ul>
+            <li><button type="button" onClick="openFile()">OpenFile</button></li>
+            <li><button id="start_button" type="button" onClick="start()">Start</button></li>
+            <li><button id="stop_button" type="button" onClick="stop()">Stop</a></li>
+            <li><button id="step_button" type="button" onClick="step()">Step</button>
         </ul>
-        
-        <div w3-include-html="text-editor-tab.html" 
-             class="tabcontent"
-             id="sourceCode"/>
-        
-        <div w3-include-html="execute-tab.html" 
-             class="tabcontent"
-             id="execution"/>
-        
-        <script src="javascript/main-page-tabs.js"></script>
-        
+    </nav>
+    <div class='split_pane'>
+        <div id='left_pane'>
+            <div class="floating_pane" >
+                <label class='divheader'>Source Code</label>
+                <textarea id="sourceCode" rows="39"></textarea>
+            </div>
+        </div>
+
+        <div id="right_pane">
+            <div class="floating_pane">
+                <label class="divheader">Executed   Instruction</label>
+                <p id='executed_instruction'></p>
+            </div>
+
+            <div class="floating_pane" style="height:200px;width:inherit;">
+                <label class="divheader">Program output</label>
+                <p id ="program_output"style="background-color:transparent;"></p>
+            </div>
+
+            <div class="floating_pane" style="height:200px;inherit;overflow:auto;">
+                <table id='register_content'>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div id='fileDropBox' class="dropbox">
+            <input type="file" id="filesIn"/>
+            <output id="list">Drop Files here</output>
+    </div>
+
     </body>
 </html>
