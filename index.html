@@ -1,1 +1,31 @@
-Hello World
+<html>
+    
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/tabs.css">
+        <link rel="stylesheet" type="text/css" href="css/full-body.css">
+    </head>
+    
+    
+    <body>
+        
+        <ul class="tab">
+            <li><a href="#" 
+                class="tablinks" 
+                onclick="showTab(event,'sourceCode')">Source Code</a></li>
+            
+            <li><a href="#" class="tablinks" 
+                onclick="showTab(event,'execution')">Excecution tab</a></li>
+        </ul>
+        
+        <div w3-include-html="text-editor-tab.html" 
+             class="tabcontent"
+             id="sourceCode"/>
+        
+        <div w3-include-html="execute-tab.html" 
+             class="tabcontent"
+             id="execution"/>
+        
+        <script src="javascript/main-page-tabs.js"></script>
+        
+    </body>
+</html>
